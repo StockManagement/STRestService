@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+  <persistence-unit name="STRestServicePU" transaction-type="RESOURCE_LOCAL">
+    <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+    <class>StockService.WeightUnit</class>
+    <class>StockService.Branch</class>
+    <class>StockService.Item</class>
+    <class>StockService.Unit</class>
+    <class>StockService.OffreRequirement</class>
+    <class>StockService.Category</class>
+    <class>StockService.HeightUnit</class>
+    <class>StockService.Stock</class>
+    <class>StockService.OffreResult</class>
+    <class>StockService.BarcodeType</class>
+    <class>StockService.TransactionDetails</class>
+    <class>StockService.ItemType</class>
+    <class>StockService.Brand</class>
+    <class>StockService.Area</class>
+    <class>StockService.Offre</class>
+    <class>StockService.LengthUnit</class>
+    <class>StockService.User</class>
+    <class>StockService.WidthUnit</class>
+    <class>StockService.Account</class>
+    <class>StockService.Package</class>
+    <class>StockService.ItemSize</class>
+    <class>StockService.Country</class>
+    <class>StockService.Transaction</class>
+    <exclude-unlisted-classes>false</exclude-unlisted-classes>
+    <properties>
+      <property name="javax.persistence.jdbc.url" value="jdbc:mysql://52.27.246.251:3306/stock?zeroDateTimeBehavior=convertToNull"/>
+      <property name="javax.persistence.jdbc.user" value="stockwebuser"/>
+      <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
+      <property name="javax.persistence.jdbc.password" value="stockwebuser#2016"/>
+    </properties>
+  </persistence-unit>
+</persistence>
