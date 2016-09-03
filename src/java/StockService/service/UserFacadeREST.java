@@ -59,6 +59,7 @@ public class UserFacadeREST extends AbstractFacade<User> {
     @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
     public User find(@PathParam("id") Integer id) {
         return super.find(id);
+        //return new User(id);
     }
 
     @GET
