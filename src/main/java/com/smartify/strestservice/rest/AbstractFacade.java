@@ -35,15 +35,22 @@ public abstract class AbstractFacade<T> {
     }
 
     public void create(T entity) {
+        
+         em.getTransaction().begin();
         getEntityManager().persist(entity);
+          em.getTransaction().commit();
     }
 
     public void edit(T entity) {
+         em.getTransaction().begin();
         getEntityManager().merge(entity);
+          em.getTransaction().commit();
     }
 
     public void remove(T entity) {
+         em.getTransaction().begin();
         getEntityManager().remove(getEntityManager().merge(entity));
+          em.getTransaction().commit();
     }
 
     public T find(Object id) {
