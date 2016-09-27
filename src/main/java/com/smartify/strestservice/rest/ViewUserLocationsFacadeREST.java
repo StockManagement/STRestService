@@ -5,9 +5,7 @@
  */
 package com.smartify.strestservice.rest;
 
-import com.smartify.strestservice.business.entity.Landmark;
-import com.smartify.strestservice.business.entity.User;
-import java.util.Collection;
+import com.smartify.strestservice.business.entity.ViewUserLocations;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -27,67 +25,51 @@ import javax.ws.rs.core.MediaType;
  * @author housseinmonzer
  */
 @Stateless
-@Path("/user")
-public class UserFacadeREST extends AbstractFacade<User> {
+@Path("/userlocations")
+public class ViewUserLocationsFacadeREST extends AbstractFacade<ViewUserLocations> {
 
-
-
-    public UserFacadeREST() {
-        super(User.class);
+    public ViewUserLocationsFacadeREST() {
+        super(ViewUserLocations.class);
     }
 
     @POST
     @Override
     @Consumes({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
-    public void create(User entity) {
+    public void create(ViewUserLocations entity) {
         super.create(entity);
     }
 
     @PUT
     @Path("{id}")
     @Consumes({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
-    public void edit(@PathParam("id") Integer id, User entity) {
+    public void edit(@PathParam("id") String id, ViewUserLocations entity) {
         super.edit(entity);
     }
 
     @DELETE
     @Path("{id}")
-    public void remove(@PathParam("id") Integer id) {
+    public void remove(@PathParam("id") String id) {
         super.remove(super.find(id));
     }
 
     @GET
     @Path("{id}")
     @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
-    public User find(@PathParam("id") Integer id) {
+    public ViewUserLocations find(@PathParam("id") String id) {
         return super.find(id);
     }
 
     @GET
     @Override
     @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
-    public List<User> findAll() {
-        return super.findAll();        
-    }
-    
-    @GET
-    @Path("/locations")
-    @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
-    public List<User> findAllUsersLocations() {
-        List<User> users = super.findAll();
-        for (User user : users) {
-            Collection<Landmark> landmarks =  user.getLandmarkCollection();
-            for(Landmark landmark: landmarks){
-                System.out.println("(" + landmark.getX() + " " + landmark.getY() + ")");
-            }
-        }
-        return users;        
+    public List<ViewUserLocations> findAll() {
+        return super.findAll();
     }
 
     @GET
     @Path("{from}/{to}")
     @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
-    public List<User> findRange(@PathParam("from") Integer from, @PathParam("to") Integer to) {
+    public List<ViewUserLocations> findRange(@PathParam("from") Integer from, @PathParam("to") Integer to) {
         return super.findRange(new int[]{from, to});
     }
 

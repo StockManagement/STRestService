@@ -6,11 +6,9 @@
 package com.smartify.strestservice.rest;
 
 import com.smartify.strestservice.business.entity.Landmark;
-import com.smartify.strestservice.rest.AbstractFacade;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
@@ -29,7 +27,6 @@ import javax.ws.rs.core.MediaType;
 @Path("/landmark")
 public class LandmarkFacadeREST extends AbstractFacade<Landmark> {
 
-    
     public LandmarkFacadeREST() {
         super(Landmark.class);
     }
