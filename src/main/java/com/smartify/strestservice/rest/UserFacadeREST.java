@@ -5,7 +5,9 @@
  */
 package com.smartify.strestservice.rest;
 
+import com.smartify.strestservice.business.entity.Landmark;
 import com.smartify.strestservice.business.entity.User;
+import java.util.Collection;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -22,7 +24,7 @@ import javax.ws.rs.core.MediaType;
 
 /**
  *
- * @author ajaafar
+ * @author housseinmonzer
  */
 @Stateless
 @Path("/user")
@@ -65,7 +67,21 @@ public class UserFacadeREST extends AbstractFacade<User> {
     @Override
     @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
     public List<User> findAll() {
-        return super.findAll();
+        return super.findAll();        
+    }
+    
+    @GET
+    @Path("/locations")
+    @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
+    public List<User> findAllUsersLocations() {
+        List<User> users = super.findAll();
+        for (User user : users) {
+            Collection<Landmark> landmarks =  user.getLandmarkCollection();
+            for(Landmark landmark: landmarks){
+                System.out.println("(" + landmark.getX() + " " + landmark.getY() + ")");
+            }
+        }
+        return users;        
     }
 
     @GET

@@ -6,9 +6,9 @@
 package com.smartify.strestservice.business.entity;
 
 import java.io.Serializable;
+import java.util.Collection;
 import java.util.Date;
 import javax.persistence.Basic;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -16,23 +16,28 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-import javax.persistence.OneToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
- * @author ajaafar
+ * @author housseinmonzer
  */
 @Entity
 @Table(name = "user")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "User.findAll", query = "SELECT u FROM User u")})
+    @NamedQuery(name = "User.findAll", query = "SELECT u FROM User u"),
+    @NamedQuery(name = "User.findByIduser", query = "SELECT u FROM User u WHERE u.iduser = :iduser"),
+    @NamedQuery(name = "User.findByUserName", query = "SELECT u FROM User u WHERE u.userName = :userName"),
+    @NamedQuery(name = "User.findByCreatedAt", query = "SELECT u FROM User u WHERE u.createdAt = :createdAt"),
+    @NamedQuery(name = "User.findByUpdatedAt", query = "SELECT u FROM User u WHERE u.updatedAt = :updatedAt")})
 public class User implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -52,16 +57,8 @@ public class User implements Serializable {
     @Column(name = "updated_at")
     @Temporal(TemporalType.TIMESTAMP)
     private Date updatedAt;
-    @OneToOne(cascade = CascadeType.ALL, mappedBy = "createdBy")
-    private Item item;
-    @OneToOne(cascade = CascadeType.ALL, mappedBy = "deletedBy")
-    private Item item1;
-    @OneToOne(cascade = CascadeType.ALL, mappedBy = "updatedBy")
-    private Item item2;
-    @OneToOne(cascade = CascadeType.ALL, mappedBy = "createdBy")
-    private Transaction transaction;
-    @OneToOne(cascade = CascadeType.ALL, mappedBy = "updatedBy")
-    private Transaction transaction1;
+    @OneToMany(mappedBy = "userId")
+    private Collection<Landmark> landmarkCollection;
 
     public User() {
     }
@@ -107,44 +104,13 @@ public class User implements Serializable {
         this.updatedAt = updatedAt;
     }
 
-    public Item getItem() {
-        return item;
+    @XmlTransient
+    public Collection<Landmark> getLandmarkCollection() {
+        return landmarkCollection;
     }
 
-    public void setItem(Item item) {
-        this.item = item;
-    }
-
-    public Item getItem1() {
-        return item1;
-    }
-
-    public void setItem1(Item item1) {
-        this.item1 = item1;
-    }
-
-    public Item getItem2() {
-        return item2;
-    }
-
-    public void setItem2(Item item2) {
-        this.item2 = item2;
-    }
-
-    public Transaction getTransaction() {
-        return transaction;
-    }
-
-    public void setTransaction(Transaction transaction) {
-        this.transaction = transaction;
-    }
-
-    public Transaction getTransaction1() {
-        return transaction1;
-    }
-
-    public void setTransaction1(Transaction transaction1) {
-        this.transaction1 = transaction1;
+    public void setLandmarkCollection(Collection<Landmark> landmarkCollection) {
+        this.landmarkCollection = landmarkCollection;
     }
 
     @Override

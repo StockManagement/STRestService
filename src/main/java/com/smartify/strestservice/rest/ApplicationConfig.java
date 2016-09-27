@@ -42,7 +42,8 @@ public class ApplicationConfig extends Application {
         resources.add(com.smartify.strestservice.rest.ItemFacadeREST.class);
         resources.add(com.smartify.strestservice.rest.ItemSizeFacadeREST.class);
         resources.add(com.smartify.strestservice.rest.ItemTypeFacadeREST.class);
-         resources.add(com.smartify.strestservice.rest.LengthUnitFacadeREST.class);
+         resources.add(com.smartify.strestservice.rest.LandmarkFacadeREST.class);
+        resources.add(com.smartify.strestservice.rest.LengthUnitFacadeREST.class);
         resources.add(com.smartify.strestservice.rest.OffreFacadeREST.class);
         resources.add(com.smartify.strestservice.rest.OffreRequirementFacadeREST.class);
         resources.add(com.smartify.strestservice.rest.OffreResultFacadeREST.class);
