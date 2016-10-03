@@ -28,6 +28,7 @@ com/smartify/strestservice/business/entity/Account_.class
 com/smartify/strestservice/business/entity/Brand_.class
 com/smartify/strestservice/rest/LengthUnitFacadeREST.class
 com/smartify/strestservice/business/entity/Country_.class
+com/smartify/strestservice/business/entity/Landmark.class
 com/smartify/strestservice/listener/CORSFilter.class
 com/smartify/strestservice/business/entity/Area.class
 com/smartify/strestservice/business/entity/ItemType.class
@@ -51,6 +52,7 @@ com/smartify/strestservice/rest/WidthUnitFacadeREST.class
 com/smartify/strestservice/rest/OffreFacadeREST.class
 com/smartify/strestservice/rest/TransactionDetailsFacadeREST.class
 com/smartify/strestservice/business/entity/Branch.class
+com/smartify/strestservice/business/entity/Landmark_.class
 com/smartify/strestservice/business/entity/WeightUnit.class
 com/smartify/strestservice/business/entity/Country.class
 com/smartify/strestservice/rest/PackageFacadeREST.class
@@ -63,6 +65,7 @@ com/smartify/strestservice/business/entity/TransactionDetails.class
 com/smartify/strestservice/business/entity/LengthUnit_.class
 com/smartify/strestservice/business/entity/Category.class
 com/smartify/strestservice/rest/AbstractFacade.class
+com/smartify/strestservice/rest/LandmarkFacadeREST.class
 com/smartify/strestservice/business/entity/Account.class
 com/smartify/strestservice/rest/BarcodeTypeFacadeREST.class
 com/smartify/strestservice/business/entity/LengthUnit.class

@@ -53,8 +53,11 @@ public class ApplicationConfig extends Application {
         resources.add(com.smartify.strestservice.rest.TransactionFacadeREST.class);
         resources.add(com.smartify.strestservice.rest.UnitFacadeREST.class);
         resources.add(com.smartify.strestservice.rest.UserFacadeREST.class);
+        resources.add(com.smartify.strestservice.rest.UserLocationCustomFacadeREST.class);
+        resources.add(com.smartify.strestservice.rest.ViewUserLocationsFacadeREST.class);
         resources.add(com.smartify.strestservice.rest.WeightUnitFacadeREST.class);
         resources.add(com.smartify.strestservice.rest.WidthUnitFacadeREST.class);
+        resources.add(org.glassfish.jersey.server.wadl.internal.WadlResource.class);
     }
     
 }

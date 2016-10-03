@@ -5,7 +5,11 @@
  */
 package com.smartify.strestservice.rest;
 
+import com.smartify.strestservice.business.entity.User;
 import com.smartify.strestservice.business.entity.ViewUserLocations;
+
+import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -27,7 +31,6 @@ import javax.ws.rs.core.MediaType;
 @Stateless
 @Path("/userlocations")
 public class ViewUserLocationsFacadeREST extends AbstractFacade<ViewUserLocations> {
-
     public ViewUserLocationsFacadeREST() {
         super(ViewUserLocations.class);
     }

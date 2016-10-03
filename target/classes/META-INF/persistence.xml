@@ -26,6 +26,7 @@
     <class>com.smartify.strestservice.business.entity.Offre</class>
     <class>com.smartify.strestservice.business.entity.WidthUnit</class>
     <class>com.smartify.strestservice.business.entity.Landmark</class>
+    <class>com.smartify.strestservice.business.entity.ViewUserLocations</class>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/stock?useUnicode=true"/>
