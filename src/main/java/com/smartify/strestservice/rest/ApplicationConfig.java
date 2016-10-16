@@ -49,10 +49,15 @@ public class ApplicationConfig extends Application {
         resources.add(com.smartify.strestservice.rest.OffreResultFacadeREST.class);
         resources.add(com.smartify.strestservice.rest.PackageFacadeREST.class);
         resources.add(com.smartify.strestservice.rest.StockFacadeREST.class);
+        resources.add(com.smartify.strestservice.rest.TrackingFacadeREST.class);
         resources.add(com.smartify.strestservice.rest.TransactionDetailsFacadeREST.class);
         resources.add(com.smartify.strestservice.rest.TransactionFacadeREST.class);
         resources.add(com.smartify.strestservice.rest.UnitFacadeREST.class);
         resources.add(com.smartify.strestservice.rest.UserFacadeREST.class);
+        resources.add(com.smartify.strestservice.rest.UserLocationCustomFacadeREST.class);
+        resources.add(com.smartify.strestservice.rest.UserTypeFacadeREST.class);
+        resources.add(com.smartify.strestservice.rest.ViewUserLocationsFacadeREST.class);      
+        resources.add(com.smartify.strestservice.rest.ViewUserTrackingFacadeREST.class);
         resources.add(com.smartify.strestservice.rest.WeightUnitFacadeREST.class);
         resources.add(com.smartify.strestservice.rest.WidthUnitFacadeREST.class);
     }

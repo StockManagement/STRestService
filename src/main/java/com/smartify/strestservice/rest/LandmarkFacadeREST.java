@@ -62,7 +62,8 @@ public class LandmarkFacadeREST extends AbstractFacade<Landmark> {
     @Override
     @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
     public List<Landmark> findAll() {
-        return super.findAll();
+        List<Landmark> list =  super.findAll();
+        return list;
     }
 
     @GET

@@ -5,9 +5,7 @@
  */
 package com.smartify.strestservice.rest;
 
-import com.smartify.strestservice.business.entity.Landmark;
 import com.smartify.strestservice.business.entity.User;
-import java.util.Collection;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -30,8 +28,6 @@ import javax.ws.rs.core.MediaType;
 @Path("/user")
 public class UserFacadeREST extends AbstractFacade<User> {
 
-
-
     public UserFacadeREST() {
         super(User.class);
     }
@@ -46,20 +42,20 @@ public class UserFacadeREST extends AbstractFacade<User> {
     @PUT
     @Path("{id}")
     @Consumes({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
-    public void edit(@PathParam("id") Integer id, User entity) {
+    public void edit(@PathParam("id") String id, User entity) {
         super.edit(entity);
     }
 
     @DELETE
     @Path("{id}")
-    public void remove(@PathParam("id") Integer id) {
+    public void remove(@PathParam("id") String id) {
         super.remove(super.find(id));
     }
 
     @GET
     @Path("{id}")
     @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
-    public User find(@PathParam("id") Integer id) {
+    public User find(@PathParam("id") String id) {
         return super.find(id);
     }
 
@@ -67,21 +63,7 @@ public class UserFacadeREST extends AbstractFacade<User> {
     @Override
     @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
     public List<User> findAll() {
-        return super.findAll();        
-    }
-    
-    @GET
-    @Path("/locations")
-    @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
-    public List<User> findAllUsersLocations() {
-        List<User> users = super.findAll();
-        for (User user : users) {
-            Collection<Landmark> landmarks =  user.getLandmarkCollection();
-            for(Landmark landmark: landmarks){
-                System.out.println("(" + landmark.getX() + " " + landmark.getY() + ")");
-            }
-        }
-        return users;        
+        return super.findAll();
     }
 
     @GET

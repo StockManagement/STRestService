@@ -40,8 +40,16 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "ViewUserLocations.findByX", query = "SELECT v FROM ViewUserLocations v WHERE v.x = :x"),
     @NamedQuery(name = "ViewUserLocations.findByY", query = "SELECT v FROM ViewUserLocations v WHERE v.y = :y"),
     @NamedQuery(name = "ViewUserLocations.findByUserId", query = "SELECT v FROM ViewUserLocations v WHERE v.userId = :userId"),
+    @NamedQuery(name = "ViewUserLocations.findByImg", query = "SELECT v FROM ViewUserLocations v WHERE v.img = :img"),
     @NamedQuery(name = "ViewUserLocations.findByIduserIdlandmark", query = "SELECT v FROM ViewUserLocations v WHERE v.iduserIdlandmark = :iduserIdlandmark")})
 public class ViewUserLocations implements Serializable {
+
+    @Column(name = "user_type_id")
+    private Integer userTypeId;
+
+    @Size(max = 45)
+    @Column(name = "phone_number")
+    private String phoneNumber;
 
     private static final long serialVersionUID = 1L;
     @Basic(optional = false)
@@ -85,6 +93,9 @@ public class ViewUserLocations implements Serializable {
     @Size(max = 65535)
     @Column(name = "style")
     private String style;
+    @Size(max = 255)
+    @Column(name = "img")
+    private String img;
     @Size(max = 11)
     @Column(name = "iduser_idlandmark")
     @Id
@@ -197,12 +208,36 @@ public class ViewUserLocations implements Serializable {
         this.style = style;
     }
 
+    public String getImg() {
+        return img;
+    }
+
+    public void setImg(String img) {
+        this.img = img;
+    }
+
     public String getIduserIdlandmark() {
         return iduserIdlandmark;
     }
 
     public void setIduserIdlandmark(String iduserIdlandmark) {
         this.iduserIdlandmark = iduserIdlandmark;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public Integer getUserTypeId() {
+        return userTypeId;
+    }
+
+    public void setUserTypeId(Integer userTypeId) {
+        this.userTypeId = userTypeId;
     }
     
 }

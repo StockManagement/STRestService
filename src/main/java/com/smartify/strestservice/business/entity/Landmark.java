@@ -35,7 +35,8 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Landmark.findByTypeId", query = "SELECT l FROM Landmark l WHERE l.typeId = :typeId"),
     @NamedQuery(name = "Landmark.findByName", query = "SELECT l FROM Landmark l WHERE l.name = :name"),
     @NamedQuery(name = "Landmark.findByX", query = "SELECT l FROM Landmark l WHERE l.x = :x"),
-    @NamedQuery(name = "Landmark.findByY", query = "SELECT l FROM Landmark l WHERE l.y = :y")})
+    @NamedQuery(name = "Landmark.findByY", query = "SELECT l FROM Landmark l WHERE l.y = :y"),
+    @NamedQuery(name = "Landmark.findByImg", query = "SELECT l FROM Landmark l WHERE l.img = :img")})
 public class Landmark implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -69,6 +70,9 @@ public class Landmark implements Serializable {
     @Size(max = 65535)
     @Column(name = "style")
     private String style;
+    @Size(max = 255)
+    @Column(name = "img")
+    private String img;
     @JoinColumn(name = "user_id", referencedColumnName = "iduser")
     @ManyToOne
     private User userId;
@@ -148,6 +152,14 @@ public class Landmark implements Serializable {
 
     public void setStyle(String style) {
         this.style = style;
+    }
+
+    public String getImg() {
+        return img;
+    }
+
+    public void setImg(String img) {
+        this.img = img;
     }
 
     public User getUserId() {

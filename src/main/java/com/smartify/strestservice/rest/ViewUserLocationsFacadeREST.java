@@ -5,7 +5,12 @@
  */
 package com.smartify.strestservice.rest;
 
+import com.smartify.strestservice.business.entity.User;
 import com.smartify.strestservice.business.entity.ViewUserLocations;
+import com.smartify.strestservice.model.UserlocationModel;
+
+import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -80,9 +85,16 @@ public class ViewUserLocationsFacadeREST extends AbstractFacade<ViewUserLocation
         return String.valueOf(super.count());
     }
 
+//    @GET
+//    @Path("usertype={user_type}/{from}/{to}")
+//    @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
+//    public List<ViewUserLocations> findRange(@PathParam("user_type") Integer user_type, @PathParam("from") Integer from, @PathParam("to") Integer to) {
+//        return new UserlocationModel().findByUserType(user_type, new int[]{from, to});
+//    }
+
     @Override
     protected EntityManager getEntityManager() {
         return em;
     }
-    
+
 }
