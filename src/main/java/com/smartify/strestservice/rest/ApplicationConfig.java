@@ -42,7 +42,7 @@ public class ApplicationConfig extends Application {
         resources.add(com.smartify.strestservice.rest.ItemFacadeREST.class);
         resources.add(com.smartify.strestservice.rest.ItemSizeFacadeREST.class);
         resources.add(com.smartify.strestservice.rest.ItemTypeFacadeREST.class);
-         resources.add(com.smartify.strestservice.rest.LandmarkFacadeREST.class);
+        resources.add(com.smartify.strestservice.rest.LandmarkFacadeREST.class);
         resources.add(com.smartify.strestservice.rest.LengthUnitFacadeREST.class);
         resources.add(com.smartify.strestservice.rest.OffreFacadeREST.class);
         resources.add(com.smartify.strestservice.rest.OffreRequirementFacadeREST.class);
@@ -55,9 +55,9 @@ public class ApplicationConfig extends Application {
         resources.add(com.smartify.strestservice.rest.UnitFacadeREST.class);
         resources.add(com.smartify.strestservice.rest.UserFacadeREST.class);
         resources.add(com.smartify.strestservice.rest.UserLocationCustomFacadeREST.class);
+        resources.add(com.smartify.strestservice.rest.UserTrackingFacadeREST.class);
         resources.add(com.smartify.strestservice.rest.UserTypeFacadeREST.class);
-        resources.add(com.smartify.strestservice.rest.ViewUserLocationsFacadeREST.class);      
-        resources.add(com.smartify.strestservice.rest.ViewUserTrackingFacadeREST.class);
+        resources.add(com.smartify.strestservice.rest.ViewUserLocationsFacadeREST.class);
         resources.add(com.smartify.strestservice.rest.WeightUnitFacadeREST.class);
         resources.add(com.smartify.strestservice.rest.WidthUnitFacadeREST.class);
     }

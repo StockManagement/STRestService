@@ -32,7 +32,11 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Table(name = "length_unit")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "LengthUnit.findAll", query = "SELECT l FROM LengthUnit l")})
+    @NamedQuery(name = "LengthUnit.findAll", query = "SELECT l FROM LengthUnit l"),
+    @NamedQuery(name = "LengthUnit.findByIdlengthUnit", query = "SELECT l FROM LengthUnit l WHERE l.idlengthUnit = :idlengthUnit"),
+    @NamedQuery(name = "LengthUnit.findByLengthUnitName", query = "SELECT l FROM LengthUnit l WHERE l.lengthUnitName = :lengthUnitName"),
+    @NamedQuery(name = "LengthUnit.findByCreatedAt", query = "SELECT l FROM LengthUnit l WHERE l.createdAt = :createdAt"),
+    @NamedQuery(name = "LengthUnit.findByUpadtedAt", query = "SELECT l FROM LengthUnit l WHERE l.upadtedAt = :upadtedAt")})
 public class LengthUnit implements Serializable {
 
     private static final long serialVersionUID = 1L;

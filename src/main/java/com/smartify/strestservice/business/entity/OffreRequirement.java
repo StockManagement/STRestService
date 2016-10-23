@@ -30,7 +30,11 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Table(name = "offre_requirement")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "OffreRequirement.findAll", query = "SELECT o FROM OffreRequirement o")})
+    @NamedQuery(name = "OffreRequirement.findAll", query = "SELECT o FROM OffreRequirement o"),
+    @NamedQuery(name = "OffreRequirement.findByIdoffreRequirement", query = "SELECT o FROM OffreRequirement o WHERE o.idoffreRequirement = :idoffreRequirement"),
+    @NamedQuery(name = "OffreRequirement.findByOffreRequirementQuantity", query = "SELECT o FROM OffreRequirement o WHERE o.offreRequirementQuantity = :offreRequirementQuantity"),
+    @NamedQuery(name = "OffreRequirement.findByCreatedAt", query = "SELECT o FROM OffreRequirement o WHERE o.createdAt = :createdAt"),
+    @NamedQuery(name = "OffreRequirement.findByUpdatedAt", query = "SELECT o FROM OffreRequirement o WHERE o.updatedAt = :updatedAt")})
 public class OffreRequirement implements Serializable {
 
     private static final long serialVersionUID = 1L;

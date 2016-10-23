@@ -32,7 +32,11 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Table(name = "width_unit")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "WidthUnit.findAll", query = "SELECT w FROM WidthUnit w")})
+    @NamedQuery(name = "WidthUnit.findAll", query = "SELECT w FROM WidthUnit w"),
+    @NamedQuery(name = "WidthUnit.findByIdwidthUnit", query = "SELECT w FROM WidthUnit w WHERE w.idwidthUnit = :idwidthUnit"),
+    @NamedQuery(name = "WidthUnit.findByWidthUnitName", query = "SELECT w FROM WidthUnit w WHERE w.widthUnitName = :widthUnitName"),
+    @NamedQuery(name = "WidthUnit.findByCreatedAt", query = "SELECT w FROM WidthUnit w WHERE w.createdAt = :createdAt"),
+    @NamedQuery(name = "WidthUnit.findByUpdatedAt", query = "SELECT w FROM WidthUnit w WHERE w.updatedAt = :updatedAt")})
 public class WidthUnit implements Serializable {
 
     private static final long serialVersionUID = 1L;

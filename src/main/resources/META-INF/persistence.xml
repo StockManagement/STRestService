@@ -1,39 +1,45 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.1" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
   <persistence-unit name="com.smartify_stRestService_war_1.0-SNAPSHOTPU" transaction-type="RESOURCE_LOCAL">
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
-    <class>com.smartify.strestservice.business.entity.WeightUnit</class>
-    <class>com.smartify.strestservice.business.entity.Category</class>
-    <class>com.smartify.strestservice.business.entity.Package</class>
-    <class>com.smartify.strestservice.business.entity.ItemType</class>
-    <class>com.smartify.strestservice.business.entity.Brand</class>
-    <class>com.smartify.strestservice.business.entity.OffreResult</class>
-    <class>com.smartify.strestservice.business.entity.Transaction</class>
-    <class>com.smartify.strestservice.business.entity.Area</class>
-    <class>com.smartify.strestservice.business.entity.Country</class>
-    <class>com.smartify.strestservice.business.entity.ItemSize</class>
-    <class>com.smartify.strestservice.business.entity.Stock</class>
-    <class>com.smartify.strestservice.business.entity.LengthUnit</class>
-    <class>com.smartify.strestservice.business.entity.HeightUnit</class>
-    <class>com.smartify.strestservice.business.entity.Account</class>
-    <class>com.smartify.strestservice.business.entity.Branch</class>
     <class>com.smartify.strestservice.business.entity.OffreRequirement</class>
-    <class>com.smartify.strestservice.business.entity.Item</class>
+    <class>com.smartify.strestservice.business.entity.LandmarkUser</class>
+    <class>com.smartify.strestservice.business.entity.UserType</class>
     <class>com.smartify.strestservice.business.entity.Unit</class>
-    <class>com.smartify.strestservice.business.entity.User</class>
+    <class>com.smartify.strestservice.business.entity.Area</class>
+    <class>com.smartify.strestservice.business.entity.WeightUnit</class>
+    <class>com.smartify.strestservice.business.entity.Account</class>
     <class>com.smartify.strestservice.business.entity.TransactionDetails</class>
-    <class>com.smartify.strestservice.business.entity.BarcodeType</class>
     <class>com.smartify.strestservice.business.entity.Offre</class>
     <class>com.smartify.strestservice.business.entity.WidthUnit</class>
+    <class>com.smartify.strestservice.business.entity.HeightUnit</class>
+    <class>com.smartify.strestservice.business.entity.Category</class>
+    <class>com.smartify.strestservice.business.entity.BarcodeType</class>
+    <class>com.smartify.strestservice.business.entity.OffreResult</class>
+    <class>com.smartify.strestservice.business.entity.Item</class>
+    <class>com.smartify.strestservice.business.entity.Branch</class>
+    <class>com.smartify.strestservice.business.entity.LengthUnit</class>
     <class>com.smartify.strestservice.business.entity.Landmark</class>
+    <class>com.smartify.strestservice.business.entity.User</class>
+    <class>com.smartify.strestservice.business.entity.Package</class>
+    <class>com.smartify.strestservice.business.entity.ItemType</class>
+    <class>com.smartify.strestservice.business.entity.ItemSize</class>
+    <class>com.smartify.strestservice.business.entity.Tracking</class>
+    <class>com.smartify.strestservice.business.entity.Country</class>
+    <class>com.smartify.strestservice.business.entity.Brand</class>
+    <class>com.smartify.strestservice.business.entity.Transaction</class>
+    <class>com.smartify.strestservice.business.entity.Stock</class>
     <class>com.smartify.strestservice.business.entity.ViewUserLocations</class>
     <class>com.smartify.strestservice.business.entity.ViewUserTracking</class>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties>
-      <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/stock?useUnicode=true"/>
+      <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/stock?zeroDateTimeBehavior=convertToNull"/>
       <property name="javax.persistence.jdbc.user" value="stockwebuser"/>
-      <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
       <property name="javax.persistence.jdbc.password" value="stockwebuser#2016"/>
+      <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
+      <property name="eclipselink.query-results-cache" value="false"/>
+      <property name="eclipselink.refresh" value="true"/>
+      <property name="eclipselink.cache.shared.default" value="false"/>
     </properties>
   </persistence-unit>
 </persistence>

@@ -30,7 +30,14 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Table(name = "stock")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Stock.findAll", query = "SELECT s FROM Stock s")})
+    @NamedQuery(name = "Stock.findAll", query = "SELECT s FROM Stock s"),
+    @NamedQuery(name = "Stock.findByIdstock", query = "SELECT s FROM Stock s WHERE s.idstock = :idstock"),
+    @NamedQuery(name = "Stock.findByStockMinPrice", query = "SELECT s FROM Stock s WHERE s.stockMinPrice = :stockMinPrice"),
+    @NamedQuery(name = "Stock.findByStockMaxPrice", query = "SELECT s FROM Stock s WHERE s.stockMaxPrice = :stockMaxPrice"),
+    @NamedQuery(name = "Stock.findByStockUnitCost", query = "SELECT s FROM Stock s WHERE s.stockUnitCost = :stockUnitCost"),
+    @NamedQuery(name = "Stock.findByStockAverageUnitCost", query = "SELECT s FROM Stock s WHERE s.stockAverageUnitCost = :stockAverageUnitCost"),
+    @NamedQuery(name = "Stock.findByCreatedAt", query = "SELECT s FROM Stock s WHERE s.createdAt = :createdAt"),
+    @NamedQuery(name = "Stock.findByUpdatedAt", query = "SELECT s FROM Stock s WHERE s.updatedAt = :updatedAt")})
 public class Stock implements Serializable {
 
     private static final long serialVersionUID = 1L;

@@ -32,7 +32,11 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Table(name = "branch")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Branch.findAll", query = "SELECT b FROM Branch b")})
+    @NamedQuery(name = "Branch.findAll", query = "SELECT b FROM Branch b"),
+    @NamedQuery(name = "Branch.findByIdbranch", query = "SELECT b FROM Branch b WHERE b.idbranch = :idbranch"),
+    @NamedQuery(name = "Branch.findByBranchName", query = "SELECT b FROM Branch b WHERE b.branchName = :branchName"),
+    @NamedQuery(name = "Branch.findByCreatedAt", query = "SELECT b FROM Branch b WHERE b.createdAt = :createdAt"),
+    @NamedQuery(name = "Branch.findByUpdatedAt", query = "SELECT b FROM Branch b WHERE b.updatedAt = :updatedAt")})
 public class Branch implements Serializable {
 
     private static final long serialVersionUID = 1L;

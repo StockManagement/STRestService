@@ -23,7 +23,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author housseinmonzer
+ * @author ajaafar
  */
 @Entity
 @Table(name = "view_user_locations")
@@ -34,6 +34,8 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "ViewUserLocations.findByUserName", query = "SELECT v FROM ViewUserLocations v WHERE v.userName = :userName"),
     @NamedQuery(name = "ViewUserLocations.findByCreatedAt", query = "SELECT v FROM ViewUserLocations v WHERE v.createdAt = :createdAt"),
     @NamedQuery(name = "ViewUserLocations.findByUpdatedAt", query = "SELECT v FROM ViewUserLocations v WHERE v.updatedAt = :updatedAt"),
+    @NamedQuery(name = "ViewUserLocations.findByPhoneNumber", query = "SELECT v FROM ViewUserLocations v WHERE v.phoneNumber = :phoneNumber"),
+    @NamedQuery(name = "ViewUserLocations.findByUserTypeId", query = "SELECT v FROM ViewUserLocations v WHERE v.userTypeId = :userTypeId"),
     @NamedQuery(name = "ViewUserLocations.findByIdlandmark", query = "SELECT v FROM ViewUserLocations v WHERE v.idlandmark = :idlandmark"),
     @NamedQuery(name = "ViewUserLocations.findByTypeId", query = "SELECT v FROM ViewUserLocations v WHERE v.typeId = :typeId"),
     @NamedQuery(name = "ViewUserLocations.findByName", query = "SELECT v FROM ViewUserLocations v WHERE v.name = :name"),
@@ -43,13 +45,6 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "ViewUserLocations.findByImg", query = "SELECT v FROM ViewUserLocations v WHERE v.img = :img"),
     @NamedQuery(name = "ViewUserLocations.findByIduserIdlandmark", query = "SELECT v FROM ViewUserLocations v WHERE v.iduserIdlandmark = :iduserIdlandmark")})
 public class ViewUserLocations implements Serializable {
-
-    @Column(name = "user_type_id")
-    private Integer userTypeId;
-
-    @Size(max = 45)
-    @Column(name = "phone_number")
-    private String phoneNumber;
 
     private static final long serialVersionUID = 1L;
     @Basic(optional = false)
@@ -67,6 +62,11 @@ public class ViewUserLocations implements Serializable {
     @Column(name = "updated_at")
     @Temporal(TemporalType.TIMESTAMP)
     private Date updatedAt;
+    @Size(max = 45)
+    @Column(name = "phone_number")
+    private String phoneNumber;
+    @Column(name = "user_type_id")
+    private Integer userTypeId;
     @Column(name = "idlandmark")
     private Integer idlandmark;
     @Lob
@@ -97,6 +97,7 @@ public class ViewUserLocations implements Serializable {
     @Column(name = "img")
     private String img;
     @Size(max = 11)
+
     @Column(name = "iduser_idlandmark")
     @Id
     private String iduserIdlandmark;
@@ -134,6 +135,22 @@ public class ViewUserLocations implements Serializable {
 
     public void setUpdatedAt(Date updatedAt) {
         this.updatedAt = updatedAt;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public Integer getUserTypeId() {
+        return userTypeId;
+    }
+
+    public void setUserTypeId(Integer userTypeId) {
+        this.userTypeId = userTypeId;
     }
 
     public Integer getIdlandmark() {
@@ -224,20 +241,4 @@ public class ViewUserLocations implements Serializable {
         this.iduserIdlandmark = iduserIdlandmark;
     }
 
-    public String getPhoneNumber() {
-        return phoneNumber;
-    }
-
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
-    }
-
-    public Integer getUserTypeId() {
-        return userTypeId;
-    }
-
-    public void setUserTypeId(Integer userTypeId) {
-        this.userTypeId = userTypeId;
-    }
-    
 }

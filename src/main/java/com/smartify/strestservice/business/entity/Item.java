@@ -34,7 +34,20 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Table(name = "item")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Item.findAll", query = "SELECT i FROM Item i")})
+    @NamedQuery(name = "Item.findAll", query = "SELECT i FROM Item i"),
+    @NamedQuery(name = "Item.findByIditem", query = "SELECT i FROM Item i WHERE i.iditem = :iditem"),
+    @NamedQuery(name = "Item.findByItemName", query = "SELECT i FROM Item i WHERE i.itemName = :itemName"),
+    @NamedQuery(name = "Item.findByCreatedAt", query = "SELECT i FROM Item i WHERE i.createdAt = :createdAt"),
+    @NamedQuery(name = "Item.findByUpdatedAt", query = "SELECT i FROM Item i WHERE i.updatedAt = :updatedAt"),
+    @NamedQuery(name = "Item.findByItemCode", query = "SELECT i FROM Item i WHERE i.itemCode = :itemCode"),
+    @NamedQuery(name = "Item.findByItemCatalogPath", query = "SELECT i FROM Item i WHERE i.itemCatalogPath = :itemCatalogPath"),
+    @NamedQuery(name = "Item.findByItemBarcode", query = "SELECT i FROM Item i WHERE i.itemBarcode = :itemBarcode"),
+    @NamedQuery(name = "Item.findByBarcodeTypeId", query = "SELECT i FROM Item i WHERE i.barcodeTypeId = :barcodeTypeId"),
+    @NamedQuery(name = "Item.findByDeletedAt", query = "SELECT i FROM Item i WHERE i.deletedAt = :deletedAt"),
+    @NamedQuery(name = "Item.findByIsDeleted", query = "SELECT i FROM Item i WHERE i.isDeleted = :isDeleted"),
+    @NamedQuery(name = "Item.findByItemCurrentQuantity", query = "SELECT i FROM Item i WHERE i.itemCurrentQuantity = :itemCurrentQuantity"),
+    @NamedQuery(name = "Item.findByItemVat", query = "SELECT i FROM Item i WHERE i.itemVat = :itemVat"),
+    @NamedQuery(name = "Item.findByApplyVat", query = "SELECT i FROM Item i WHERE i.applyVat = :applyVat")})
 public class Item implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -92,6 +105,12 @@ public class Item implements Serializable {
     private Float itemVat;
     @Column(name = "apply_vat")
     private Boolean applyVat;
+    @OneToOne(cascade = CascadeType.ALL, mappedBy = "itemId")
+    private TransactionDetails transactionDetails;
+    @OneToOne(cascade = CascadeType.ALL, mappedBy = "itemId")
+    private OffreRequirement offreRequirement;
+    @OneToOne(cascade = CascadeType.ALL, mappedBy = "itemId")
+    private Stock stock;
     @JoinColumn(name = "area_id", referencedColumnName = "idarea")
     @OneToOne(optional = false)
     private Area areaId;
@@ -123,12 +142,6 @@ public class Item implements Serializable {
     private Package package1;
     @OneToOne(cascade = CascadeType.ALL, mappedBy = "itemId")
     private OffreResult offreResult;
-    @OneToOne(cascade = CascadeType.ALL, mappedBy = "itemId")
-    private TransactionDetails transactionDetails;
-    @OneToOne(cascade = CascadeType.ALL, mappedBy = "itemId")
-    private OffreRequirement offreRequirement;
-    @OneToOne(cascade = CascadeType.ALL, mappedBy = "itemId")
-    private Stock stock;
 
     public Item() {
     }
@@ -272,6 +285,30 @@ public class Item implements Serializable {
         this.applyVat = applyVat;
     }
 
+    public TransactionDetails getTransactionDetails() {
+        return transactionDetails;
+    }
+
+    public void setTransactionDetails(TransactionDetails transactionDetails) {
+        this.transactionDetails = transactionDetails;
+    }
+
+    public OffreRequirement getOffreRequirement() {
+        return offreRequirement;
+    }
+
+    public void setOffreRequirement(OffreRequirement offreRequirement) {
+        this.offreRequirement = offreRequirement;
+    }
+
+    public Stock getStock() {
+        return stock;
+    }
+
+    public void setStock(Stock stock) {
+        this.stock = stock;
+    }
+
     public Area getAreaId() {
         return areaId;
     }
@@ -358,30 +395,6 @@ public class Item implements Serializable {
 
     public void setOffreResult(OffreResult offreResult) {
         this.offreResult = offreResult;
-    }
-
-    public TransactionDetails getTransactionDetails() {
-        return transactionDetails;
-    }
-
-    public void setTransactionDetails(TransactionDetails transactionDetails) {
-        this.transactionDetails = transactionDetails;
-    }
-
-    public OffreRequirement getOffreRequirement() {
-        return offreRequirement;
-    }
-
-    public void setOffreRequirement(OffreRequirement offreRequirement) {
-        this.offreRequirement = offreRequirement;
-    }
-
-    public Stock getStock() {
-        return stock;
-    }
-
-    public void setStock(Stock stock) {
-        this.stock = stock;
     }
 
     @Override

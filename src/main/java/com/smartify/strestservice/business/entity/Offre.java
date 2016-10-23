@@ -30,7 +30,11 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Table(name = "offre")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Offre.findAll", query = "SELECT o FROM Offre o")})
+    @NamedQuery(name = "Offre.findAll", query = "SELECT o FROM Offre o"),
+    @NamedQuery(name = "Offre.findByIdoffre", query = "SELECT o FROM Offre o WHERE o.idoffre = :idoffre"),
+    @NamedQuery(name = "Offre.findByOffreCode", query = "SELECT o FROM Offre o WHERE o.offreCode = :offreCode"),
+    @NamedQuery(name = "Offre.findByOffreFrom", query = "SELECT o FROM Offre o WHERE o.offreFrom = :offreFrom"),
+    @NamedQuery(name = "Offre.findByOffreTo", query = "SELECT o FROM Offre o WHERE o.offreTo = :offreTo")})
 public class Offre implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -55,9 +59,9 @@ public class Offre implements Serializable {
     @Column(name = "offre_to")
     private String offreTo;
     @OneToOne(cascade = CascadeType.ALL, mappedBy = "offreId")
-    private OffreResult offreResult;
-    @OneToOne(cascade = CascadeType.ALL, mappedBy = "offreId")
     private OffreRequirement offreRequirement;
+    @OneToOne(cascade = CascadeType.ALL, mappedBy = "offreId")
+    private OffreResult offreResult;
 
     public Offre() {
     }
@@ -111,20 +115,20 @@ public class Offre implements Serializable {
         this.offreTo = offreTo;
     }
 
-    public OffreResult getOffreResult() {
-        return offreResult;
-    }
-
-    public void setOffreResult(OffreResult offreResult) {
-        this.offreResult = offreResult;
-    }
-
     public OffreRequirement getOffreRequirement() {
         return offreRequirement;
     }
 
     public void setOffreRequirement(OffreRequirement offreRequirement) {
         this.offreRequirement = offreRequirement;
+    }
+
+    public OffreResult getOffreResult() {
+        return offreResult;
+    }
+
+    public void setOffreResult(OffreResult offreResult) {
+        this.offreResult = offreResult;
     }
 
     @Override

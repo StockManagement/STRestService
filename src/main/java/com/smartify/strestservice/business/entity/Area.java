@@ -32,7 +32,11 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Table(name = "area")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Area.findAll", query = "SELECT a FROM Area a")})
+    @NamedQuery(name = "Area.findAll", query = "SELECT a FROM Area a"),
+    @NamedQuery(name = "Area.findByIdarea", query = "SELECT a FROM Area a WHERE a.idarea = :idarea"),
+    @NamedQuery(name = "Area.findByAreaName", query = "SELECT a FROM Area a WHERE a.areaName = :areaName"),
+    @NamedQuery(name = "Area.findByCreatedAt", query = "SELECT a FROM Area a WHERE a.createdAt = :createdAt"),
+    @NamedQuery(name = "Area.findByUpdatedAt", query = "SELECT a FROM Area a WHERE a.updatedAt = :updatedAt")})
 public class Area implements Serializable {
 
     private static final long serialVersionUID = 1L;

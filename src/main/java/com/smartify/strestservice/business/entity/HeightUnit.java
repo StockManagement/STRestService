@@ -32,7 +32,11 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Table(name = "height_unit")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "HeightUnit.findAll", query = "SELECT h FROM HeightUnit h")})
+    @NamedQuery(name = "HeightUnit.findAll", query = "SELECT h FROM HeightUnit h"),
+    @NamedQuery(name = "HeightUnit.findByIdheightUnit", query = "SELECT h FROM HeightUnit h WHERE h.idheightUnit = :idheightUnit"),
+    @NamedQuery(name = "HeightUnit.findByHeightUnitName", query = "SELECT h FROM HeightUnit h WHERE h.heightUnitName = :heightUnitName"),
+    @NamedQuery(name = "HeightUnit.findByCreatedAt", query = "SELECT h FROM HeightUnit h WHERE h.createdAt = :createdAt"),
+    @NamedQuery(name = "HeightUnit.findByUpdatedAt", query = "SELECT h FROM HeightUnit h WHERE h.updatedAt = :updatedAt")})
 public class HeightUnit implements Serializable {
 
     private static final long serialVersionUID = 1L;

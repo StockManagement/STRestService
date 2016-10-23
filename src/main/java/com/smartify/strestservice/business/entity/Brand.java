@@ -32,7 +32,11 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Table(name = "brand")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Brand.findAll", query = "SELECT b FROM Brand b")})
+    @NamedQuery(name = "Brand.findAll", query = "SELECT b FROM Brand b"),
+    @NamedQuery(name = "Brand.findByIdbrand", query = "SELECT b FROM Brand b WHERE b.idbrand = :idbrand"),
+    @NamedQuery(name = "Brand.findByBrandName", query = "SELECT b FROM Brand b WHERE b.brandName = :brandName"),
+    @NamedQuery(name = "Brand.findByCreatedAt", query = "SELECT b FROM Brand b WHERE b.createdAt = :createdAt"),
+    @NamedQuery(name = "Brand.findByUpdatedAt", query = "SELECT b FROM Brand b WHERE b.updatedAt = :updatedAt")})
 public class Brand implements Serializable {
 
     private static final long serialVersionUID = 1L;

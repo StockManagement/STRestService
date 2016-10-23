@@ -33,7 +33,15 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Table(name = "item_size")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "ItemSize.findAll", query = "SELECT i FROM ItemSize i")})
+    @NamedQuery(name = "ItemSize.findAll", query = "SELECT i FROM ItemSize i"),
+    @NamedQuery(name = "ItemSize.findByIditemSize", query = "SELECT i FROM ItemSize i WHERE i.iditemSize = :iditemSize"),
+    @NamedQuery(name = "ItemSize.findByItemSizeName", query = "SELECT i FROM ItemSize i WHERE i.itemSizeName = :itemSizeName"),
+    @NamedQuery(name = "ItemSize.findByCreatedAt", query = "SELECT i FROM ItemSize i WHERE i.createdAt = :createdAt"),
+    @NamedQuery(name = "ItemSize.findByUpdatedAt", query = "SELECT i FROM ItemSize i WHERE i.updatedAt = :updatedAt"),
+    @NamedQuery(name = "ItemSize.findByItemSizeHeight", query = "SELECT i FROM ItemSize i WHERE i.itemSizeHeight = :itemSizeHeight"),
+    @NamedQuery(name = "ItemSize.findByItemSizeLength", query = "SELECT i FROM ItemSize i WHERE i.itemSizeLength = :itemSizeLength"),
+    @NamedQuery(name = "ItemSize.findByItemSizeWidth", query = "SELECT i FROM ItemSize i WHERE i.itemSizeWidth = :itemSizeWidth"),
+    @NamedQuery(name = "ItemSize.findByItemSizeWeight", query = "SELECT i FROM ItemSize i WHERE i.itemSizeWeight = :itemSizeWeight")})
 public class ItemSize implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -62,8 +70,6 @@ public class ItemSize implements Serializable {
     private Float itemSizeWidth;
     @Column(name = "item_size_weight")
     private Float itemSizeWeight;
-    @OneToOne(cascade = CascadeType.ALL, mappedBy = "itemSizeId")
-    private Item item;
     @JoinColumn(name = "height_unit_id", referencedColumnName = "idheight_unit")
     @OneToOne(optional = false)
     private HeightUnit heightUnitId;
@@ -76,6 +82,8 @@ public class ItemSize implements Serializable {
     @JoinColumn(name = "width_unit_id", referencedColumnName = "idwidth_unit")
     @OneToOne(optional = false)
     private WidthUnit widthUnitId;
+    @OneToOne(cascade = CascadeType.ALL, mappedBy = "itemSizeId")
+    private Item item;
 
     public ItemSize() {
     }
@@ -153,14 +161,6 @@ public class ItemSize implements Serializable {
         this.itemSizeWeight = itemSizeWeight;
     }
 
-    public Item getItem() {
-        return item;
-    }
-
-    public void setItem(Item item) {
-        this.item = item;
-    }
-
     public HeightUnit getHeightUnitId() {
         return heightUnitId;
     }
@@ -191,6 +191,14 @@ public class ItemSize implements Serializable {
 
     public void setWidthUnitId(WidthUnit widthUnitId) {
         this.widthUnitId = widthUnitId;
+    }
+
+    public Item getItem() {
+        return item;
+    }
+
+    public void setItem(Item item) {
+        this.item = item;
     }
 
     @Override

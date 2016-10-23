@@ -32,7 +32,11 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Table(name = "weight_unit")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "WeightUnit.findAll", query = "SELECT w FROM WeightUnit w")})
+    @NamedQuery(name = "WeightUnit.findAll", query = "SELECT w FROM WeightUnit w"),
+    @NamedQuery(name = "WeightUnit.findByIdweightUnit", query = "SELECT w FROM WeightUnit w WHERE w.idweightUnit = :idweightUnit"),
+    @NamedQuery(name = "WeightUnit.findByWeightUnitName", query = "SELECT w FROM WeightUnit w WHERE w.weightUnitName = :weightUnitName"),
+    @NamedQuery(name = "WeightUnit.findByCreatedAt", query = "SELECT w FROM WeightUnit w WHERE w.createdAt = :createdAt"),
+    @NamedQuery(name = "WeightUnit.findByUpdatedAt", query = "SELECT w FROM WeightUnit w WHERE w.updatedAt = :updatedAt")})
 public class WeightUnit implements Serializable {
 
     private static final long serialVersionUID = 1L;

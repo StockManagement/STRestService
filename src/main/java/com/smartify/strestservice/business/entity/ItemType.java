@@ -32,7 +32,11 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Table(name = "item_type")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "ItemType.findAll", query = "SELECT i FROM ItemType i")})
+    @NamedQuery(name = "ItemType.findAll", query = "SELECT i FROM ItemType i"),
+    @NamedQuery(name = "ItemType.findByIditemType", query = "SELECT i FROM ItemType i WHERE i.iditemType = :iditemType"),
+    @NamedQuery(name = "ItemType.findByItemTypeName", query = "SELECT i FROM ItemType i WHERE i.itemTypeName = :itemTypeName"),
+    @NamedQuery(name = "ItemType.findByCreatedAt", query = "SELECT i FROM ItemType i WHERE i.createdAt = :createdAt"),
+    @NamedQuery(name = "ItemType.findByUpdatedAt", query = "SELECT i FROM ItemType i WHERE i.updatedAt = :updatedAt")})
 public class ItemType implements Serializable {
 
     private static final long serialVersionUID = 1L;

@@ -5,11 +5,10 @@
  */
 package com.smartify.strestservice.rest;
 
+import com.smartify.strestservice.business.entity.ViewUserLocations;
 import com.smartify.strestservice.business.entity.ViewUserTracking;
 import com.smartify.strestservice.model.UserTrackingModel;
-import java.time.LocalDateTime;
-import static java.time.LocalDateTime.now;
-import java.util.Calendar;
+import java.sql.Timestamp;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -23,7 +22,6 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
-import org.eclipse.persistence.jpa.jpql.parser.DateTime;
 
 /**
  *
@@ -31,38 +29,11 @@ import org.eclipse.persistence.jpa.jpql.parser.DateTime;
  */
 @Stateless
 @Path("/usertracking")
-public class ViewUserTrackingFacadeREST extends AbstractFacade<ViewUserTracking> {
+public class UserTrackingFacadeREST extends AbstractFacade<ViewUserTracking> {
 
-    
-    public ViewUserTrackingFacadeREST() {
+   
+    public UserTrackingFacadeREST() {
         super(ViewUserTracking.class);
-    }
-
-    @POST
-    @Override
-    @Consumes({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
-    public void create(ViewUserTracking entity) {
-        super.create(entity);
-    }
-
-    @PUT
-    @Path("{id}")
-    @Consumes({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
-    public void edit(@PathParam("id") String id, ViewUserTracking entity) {
-        super.edit(entity);
-    }
-
-    @DELETE
-    @Path("{id}")
-    public void remove(@PathParam("id") String id) {
-        super.remove(super.find(id));
-    }
-
-    @GET
-    @Path("{id}")
-    @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
-    public ViewUserTracking find(@PathParam("id") String id) {
-        return super.find(id);
     }
 
     @GET
@@ -85,16 +56,14 @@ public class ViewUserTrackingFacadeREST extends AbstractFacade<ViewUserTracking>
     public String countREST() {
         return String.valueOf(super.count());
     }
-
-//    @GET
-//    @Path("userid={userid}")
-//    @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
-//    public List<ViewUserTracking> findRange(@PathParam("userid") Integer userid) {
-//        Calendar calendar = Calendar.getInstance();
-//        java.util.Date now = calendar.getTime();
-//        java.sql.Timestamp currentTimestamp = new java.sql.Timestamp(now.getTime());
-//        return new UserTrackingModel().getUserTrackBy(userid, currentTimestamp, currentTimestamp);
-//    }
+//int userId,Timestamp from,Timestamp to
+    @GET
+    @Path("/getUserTrackBy/userId={userId}/from={from}/to={to}")
+    @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
+    public List<ViewUserTracking> getUserTrackBy(@PathParam("userId") Integer userId, @PathParam("from") String from, @PathParam("to") String to) {
+        return  new UserTrackingModel().getUserTrackBy(userId,from,to);
+    }
+    
     @Override
     protected EntityManager getEntityManager() {
         return em;

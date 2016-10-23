@@ -17,7 +17,7 @@ import javax.annotation.Generated;
 import javax.persistence.metamodel.SingularAttribute;
 import javax.persistence.metamodel.StaticMetamodel;
 
-@Generated(value="EclipseLink-2.5.2.v20140319-rNA", date="2016-10-16T22:18:49")
+@Generated(value="EclipseLink-2.5.2.v20140319-rNA", date="2016-10-23T14:43:14")
 @StaticMetamodel(Item.class)
 public class Item_ { 
 
@@ -33,8 +33,8 @@ public class Item_ {
     public static volatile SingularAttribute<Item, String> itemName;
     public static volatile SingularAttribute<Item, Boolean> isDeleted;
     public static volatile SingularAttribute<Item, String> itemDescription;
-    public static volatile SingularAttribute<Item, ItemType> itemTypeId;
     public static volatile SingularAttribute<Item, Stock> stock;
+    public static volatile SingularAttribute<Item, ItemType> itemTypeId;
     public static volatile SingularAttribute<Item, Date> updatedAt;
     public static volatile SingularAttribute<Item, String> itemImageName;
     public static volatile SingularAttribute<Item, OffreResult> offreResult;

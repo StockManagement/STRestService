@@ -84,17 +84,19 @@ public class ViewUserLocationsFacadeREST extends AbstractFacade<ViewUserLocation
     public String countREST() {
         return String.valueOf(super.count());
     }
-
-//    @GET
-//    @Path("usertype={user_type}/{from}/{to}")
-//    @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
-//    public List<ViewUserLocations> findRange(@PathParam("user_type") Integer user_type, @PathParam("from") Integer from, @PathParam("to") Integer to) {
-//        return new UserlocationModel().findByUserType(user_type, new int[]{from, to});
-//    }
-
-    @Override
-    protected EntityManager getEntityManager() {
-        return em;
+//findByUserType(int user_type_id,int[] range)
+    @GET
+    @Path("/findByUserType/type={user_type_id}/from={from}/to={to}")
+    @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
+    public List<ViewUserLocations> findByUserType(@PathParam("user_type_id") Integer user_type_id,@PathParam("from") Integer from, @PathParam("to") Integer to) {
+        return  new UserlocationModel().findByUserType(user_type_id,new int[]{from, to});
     }
+        @Override
+        protected EntityManager getEntityManager
+        
+            () {
+        return em;
+        }
 
+    
 }

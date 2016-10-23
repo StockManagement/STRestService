@@ -30,7 +30,11 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Table(name = "barcode_type")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "BarcodeType.findAll", query = "SELECT b FROM BarcodeType b")})
+    @NamedQuery(name = "BarcodeType.findAll", query = "SELECT b FROM BarcodeType b"),
+    @NamedQuery(name = "BarcodeType.findByIdbarcodeType", query = "SELECT b FROM BarcodeType b WHERE b.idbarcodeType = :idbarcodeType"),
+    @NamedQuery(name = "BarcodeType.findByBarcodeTypeName", query = "SELECT b FROM BarcodeType b WHERE b.barcodeTypeName = :barcodeTypeName"),
+    @NamedQuery(name = "BarcodeType.findByCreatedAt", query = "SELECT b FROM BarcodeType b WHERE b.createdAt = :createdAt"),
+    @NamedQuery(name = "BarcodeType.findByUpdatedAt", query = "SELECT b FROM BarcodeType b WHERE b.updatedAt = :updatedAt")})
 public class BarcodeType implements Serializable {
 
     private static final long serialVersionUID = 1L;

@@ -25,7 +25,7 @@ public class UserTrackingModel extends AbstractFacade<ViewUserTracking> {
         super(ViewUserTracking.class);
     }
 
-    public List<ViewUserTracking> getUserTrackBy(int userId,Timestamp from,Timestamp to) {
+    public List<ViewUserTracking> getUserTrackBy(int userId,String from,String to) {
         try {
             CriteriaBuilder criteriaBuilder = getEntityManager().getCriteriaBuilder();
             CriteriaQuery<ViewUserTracking> criteriaQuery = criteriaBuilder.createQuery(ViewUserTracking.class);

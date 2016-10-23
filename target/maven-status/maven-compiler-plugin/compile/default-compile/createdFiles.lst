@@ -1,4 +1,3 @@
-com/smartify/strestservice/business/entity/TrackingMapUser_.class
 com/smartify/strestservice/business/entity/OffreResult_.class
 com/smartify/strestservice/business/entity/TransactionDetails_.class
 com/smartify/strestservice/rest/ApplicationConfig.class
@@ -17,11 +16,9 @@ com/smartify/strestservice/business/entity/Package_.class
 com/smartify/strestservice/business/entity/WidthUnit.class
 com/smartify/strestservice/rest/CountryFacadeREST.class
 com/smartify/strestservice/business/entity/Category_.class
-com/smartify/strestservice/rest/ViewUserLocationsFacadeREST.class
 com/smartify/strestservice/business/entity/ItemSize_.class
 com/smartify/strestservice/rest/BranchFacadeREST.class
 com/smartify/strestservice/business/entity/LandmarkUser_.class
-com/smartify/strestservice/rest/ViewUserTrackingFacadeREST.class
 com/smartify/strestservice/rest/AreaFacadeREST.class
 com/smartify/strestservice/business/entity/Branch_.class
 com/smartify/strestservice/rest/OffreResultFacadeREST.class
@@ -56,7 +53,6 @@ com/smartify/strestservice/business/entity/OffreRequirement.class
 com/smartify/strestservice/rest/UserFacadeREST.class
 com/smartify/strestservice/rest/CategoryFacadeREST.class
 com/smartify/strestservice/business/entity/ViewUserLocations.class
-com/smartify/strestservice/model/UserTrackingModel.class
 com/smartify/strestservice/rest/WidthUnitFacadeREST.class
 com/smartify/strestservice/rest/OffreFacadeREST.class
 com/smartify/strestservice/rest/TransactionDetailsFacadeREST.class
@@ -65,7 +61,6 @@ com/smartify/strestservice/business/entity/Landmark_.class
 com/smartify/strestservice/business/entity/WeightUnit.class
 com/smartify/strestservice/rest/TrackingFacadeREST.class
 com/smartify/strestservice/business/entity/Country.class
-com/smartify/strestservice/business/entity/TrackingMapUser.class
 com/smartify/strestservice/rest/PackageFacadeREST.class
 com/smartify/strestservice/rest/UserTypeFacadeREST.class
 com/smartify/strestservice/business/entity/UserType.class
@@ -94,4 +89,3 @@ com/smartify/strestservice/rest/AccountFacadeREST.class
 com/smartify/strestservice/rest/UnitFacadeREST.class
 com/smartify/strestservice/business/entity/ViewUserLocations_.class
 com/smartify/strestservice/business/entity/ViewUserTracking_.class
-com/smartify/strestservice/model/UserlocationModel.class

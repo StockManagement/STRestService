@@ -31,7 +31,13 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Table(name = "transaction_details")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "TransactionDetails.findAll", query = "SELECT t FROM TransactionDetails t")})
+    @NamedQuery(name = "TransactionDetails.findAll", query = "SELECT t FROM TransactionDetails t"),
+    @NamedQuery(name = "TransactionDetails.findByIdtransactionDetails", query = "SELECT t FROM TransactionDetails t WHERE t.idtransactionDetails = :idtransactionDetails"),
+    @NamedQuery(name = "TransactionDetails.findByProductionDate", query = "SELECT t FROM TransactionDetails t WHERE t.productionDate = :productionDate"),
+    @NamedQuery(name = "TransactionDetails.findByExpiryDate", query = "SELECT t FROM TransactionDetails t WHERE t.expiryDate = :expiryDate"),
+    @NamedQuery(name = "TransactionDetails.findByTransactionDetailsInOut", query = "SELECT t FROM TransactionDetails t WHERE t.transactionDetailsInOut = :transactionDetailsInOut"),
+    @NamedQuery(name = "TransactionDetails.findByCreatedAt", query = "SELECT t FROM TransactionDetails t WHERE t.createdAt = :createdAt"),
+    @NamedQuery(name = "TransactionDetails.findByUpdatedAt", query = "SELECT t FROM TransactionDetails t WHERE t.updatedAt = :updatedAt")})
 public class TransactionDetails implements Serializable {
 
     private static final long serialVersionUID = 1L;

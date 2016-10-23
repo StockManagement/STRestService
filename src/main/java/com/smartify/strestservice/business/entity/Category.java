@@ -6,8 +6,8 @@
 package com.smartify.strestservice.business.entity;
 
 import java.io.Serializable;
+import java.util.Collection;
 import java.util.Date;
-import java.util.Set;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -37,7 +37,11 @@ import javax.xml.bind.annotation.XmlTransient;
 @Table(name = "category")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Category.findAll", query = "SELECT c FROM Category c")})
+    @NamedQuery(name = "Category.findAll", query = "SELECT c FROM Category c"),
+    @NamedQuery(name = "Category.findByIdcategory", query = "SELECT c FROM Category c WHERE c.idcategory = :idcategory"),
+    @NamedQuery(name = "Category.findByCategoryName", query = "SELECT c FROM Category c WHERE c.categoryName = :categoryName"),
+    @NamedQuery(name = "Category.findByCreatedAt", query = "SELECT c FROM Category c WHERE c.createdAt = :createdAt"),
+    @NamedQuery(name = "Category.findByUpdatedAt", query = "SELECT c FROM Category c WHERE c.updatedAt = :updatedAt")})
 public class Category implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -60,7 +64,7 @@ public class Category implements Serializable {
     @OneToOne(cascade = CascadeType.ALL, mappedBy = "categoryId")
     private Item item;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "categoryparentID")
-    private Set<Category> categorySet;
+    private Collection<Category> categoryCollection;
     @JoinColumn(name = "category_parentID", referencedColumnName = "idcategory")
     @ManyToOne(optional = false)
     private Category categoryparentID;
@@ -118,12 +122,12 @@ public class Category implements Serializable {
     }
 
     @XmlTransient
-    public Set<Category> getCategorySet() {
-        return categorySet;
+    public Collection<Category> getCategoryCollection() {
+        return categoryCollection;
     }
 
-    public void setCategorySet(Set<Category> categorySet) {
-        this.categorySet = categorySet;
+    public void setCategoryCollection(Collection<Category> categoryCollection) {
+        this.categoryCollection = categoryCollection;
     }
 
     public Category getCategoryparentID() {

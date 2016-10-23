@@ -32,7 +32,13 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Table(name = "package")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Package.findAll", query = "SELECT p FROM Package p")})
+    @NamedQuery(name = "Package.findAll", query = "SELECT p FROM Package p"),
+    @NamedQuery(name = "Package.findByIdpackage", query = "SELECT p FROM Package p WHERE p.idpackage = :idpackage"),
+    @NamedQuery(name = "Package.findByPackageName", query = "SELECT p FROM Package p WHERE p.packageName = :packageName"),
+    @NamedQuery(name = "Package.findByPackageQuantity", query = "SELECT p FROM Package p WHERE p.packageQuantity = :packageQuantity"),
+    @NamedQuery(name = "Package.findByPackagePrice", query = "SELECT p FROM Package p WHERE p.packagePrice = :packagePrice"),
+    @NamedQuery(name = "Package.findByCreatedAt", query = "SELECT p FROM Package p WHERE p.createdAt = :createdAt"),
+    @NamedQuery(name = "Package.findByUpdatedAt", query = "SELECT p FROM Package p WHERE p.updatedAt = :updatedAt")})
 public class Package implements Serializable {
 
     private static final long serialVersionUID = 1L;
