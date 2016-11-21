@@ -64,6 +64,7 @@ public class UserTrackingFacadeREST extends AbstractFacade<ViewUserTracking> {
         return  new UserTrackingModel().getUserTrackBy(userId,from,to);
     }
     
+    
     @Override
     protected EntityManager getEntityManager() {
         return em;

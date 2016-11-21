@@ -1,3 +1,4 @@
+/Users/ajaafar/Development/Smartify/StockSystem/stRestService/src/main/java/com/smartify/strestservice/rest/UserTrackingFacadeREST.java
 /Users/ajaafar/Development/Smartify/StockSystem/stRestService/src/main/java/com/smartify/strestservice/rest/UserFacadeREST.java
 /Users/ajaafar/Development/Smartify/StockSystem/stRestService/src/main/java/com/smartify/strestservice/rest/ApplicationConfig.java
 /Users/ajaafar/Development/Smartify/StockSystem/stRestService/src/main/java/com/smartify/strestservice/rest/TransactionDetailsFacadeREST.java
@@ -21,6 +22,7 @@
 /Users/ajaafar/Development/Smartify/StockSystem/stRestService/src/main/java/com/smartify/strestservice/rest/PackageFacadeREST.java
 /Users/ajaafar/Development/Smartify/StockSystem/stRestService/src/main/java/com/smartify/strestservice/rest/LengthUnitFacadeREST.java
 /Users/ajaafar/Development/Smartify/StockSystem/stRestService/src/main/java/com/smartify/strestservice/business/entity/LengthUnit.java
+/Users/ajaafar/Development/Smartify/StockSystem/stRestService/src/main/java/com/smartify/strestservice/enumeration/UserType.java
 /Users/ajaafar/Development/Smartify/StockSystem/stRestService/src/main/java/com/smartify/strestservice/rest/BrandFacadeREST.java
 /Users/ajaafar/Development/Smartify/StockSystem/stRestService/src/main/java/com/smartify/strestservice/business/entity/ViewUserLocations.java
 /Users/ajaafar/Development/Smartify/StockSystem/stRestService/src/main/java/com/smartify/strestservice/rest/ItemTypeFacadeREST.java
@@ -42,6 +44,7 @@
 /Users/ajaafar/Development/Smartify/StockSystem/stRestService/src/main/java/com/smartify/strestservice/business/entity/User.java
 /Users/ajaafar/Development/Smartify/StockSystem/stRestService/src/main/java/com/smartify/strestservice/business/entity/Tracking.java
 /Users/ajaafar/Development/Smartify/StockSystem/stRestService/src/main/java/com/smartify/strestservice/rest/StockFacadeREST.java
+/Users/ajaafar/Development/Smartify/StockSystem/stRestService/src/main/java/com/smartify/strestservice/rest/ViewUserLocationsFacadeREST.java
 /Users/ajaafar/Development/Smartify/StockSystem/stRestService/src/main/java/com/smartify/strestservice/business/entity/ViewUserTracking.java
 /Users/ajaafar/Development/Smartify/StockSystem/stRestService/src/main/java/com/smartify/strestservice/rest/HelloWorldService.java
 /Users/ajaafar/Development/Smartify/StockSystem/stRestService/src/main/java/com/smartify/strestservice/business/entity/Account.java

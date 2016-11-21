@@ -7,6 +7,7 @@ package com.smartify.strestservice.model;
 
 import com.smartify.strestservice.business.entity.ViewUserLocations;
 import com.smartify.strestservice.business.entity.ViewUserLocations_;
+import com.smartify.strestservice.enumeration.UserType;
 import com.smartify.strestservice.rest.AbstractFacade;
 import java.util.List;
 import javax.persistence.TypedQuery;
@@ -32,8 +33,11 @@ public class UserlocationModel extends AbstractFacade<ViewUserLocations> {
             Predicate condition = criteriaBuilder.equal(vuserlocation.get(ViewUserLocations_.userTypeId), user_type_id);
             criteriaQuery.where(condition);
             TypedQuery<ViewUserLocations> query = getEntityManager().createQuery(criteriaQuery);
-            query.setMaxResults(range[1] - range[0] + 1);
-             query.setFirstResult(range[0]);
+            if(range[0]>=0 && range[1]>0){
+             query.setMaxResults(range[1] - range[0] + 1);
+             query.setFirstResult(range[0]);  
+            }
+     
             List<ViewUserLocations> list = query.getResultList();
             if (list == null || list.isEmpty()) {
                 return null;
@@ -49,4 +53,14 @@ public class UserlocationModel extends AbstractFacade<ViewUserLocations> {
             getEntityManager().close();
         }
     }
+
+  public List<ViewUserLocations> getClients(int[] range) {
+       return findByUserType(UserType.Client.getValue(),range);
+    }
+  
+   public List<ViewUserLocations> getUsers(int[] range) {
+       return findByUserType(UserType.User.getValue(),range);
+    }
+
+
 }

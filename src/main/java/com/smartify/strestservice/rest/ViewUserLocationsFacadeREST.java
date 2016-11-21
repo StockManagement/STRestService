@@ -91,6 +91,22 @@ public class ViewUserLocationsFacadeREST extends AbstractFacade<ViewUserLocation
     public List<ViewUserLocations> findByUserType(@PathParam("user_type_id") Integer user_type_id,@PathParam("from") Integer from, @PathParam("to") Integer to) {
         return  new UserlocationModel().findByUserType(user_type_id,new int[]{from, to});
     }
+    
+    //Get Users with their loaction (address)
+     @GET
+    @Path("/getUsers/from={from}/to={to}")
+    @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
+    public List<ViewUserLocations> getUsers(@PathParam("from") Integer from, @PathParam("to") Integer to) {
+        return  new UserlocationModel().getUsers(new int[]{from, to});
+    }
+    //Get Clients with their (address)
+     @GET
+    @Path("/getClients/from={from}/to={to}")
+    @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
+    public List<ViewUserLocations> getClients(@PathParam("from") Integer from, @PathParam("to") Integer to) {
+        return  new UserlocationModel().getClients(new int[]{from, to});
+    }
+    
         @Override
         protected EntityManager getEntityManager
         
