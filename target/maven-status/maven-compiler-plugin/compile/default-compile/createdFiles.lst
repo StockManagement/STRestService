@@ -9,6 +9,7 @@ com/smartify/strestservice/business/entity/BarcodeType_.class
 com/smartify/strestservice/business/entity/Package.class
 com/smartify/strestservice/business/entity/WidthUnit_.class
 com/smartify/strestservice/business/entity/Transaction_.class
+com/smartify/strestservice/rest/UserLocationCustomFacadeREST$Login.class
 com/smartify/strestservice/business/entity/Stock_.class
 com/smartify/strestservice/business/entity/BarcodeType.class
 com/smartify/strestservice/business/entity/Item_.class
@@ -16,7 +17,9 @@ com/smartify/strestservice/business/entity/Package_.class
 com/smartify/strestservice/business/entity/WidthUnit.class
 com/smartify/strestservice/rest/CountryFacadeREST.class
 com/smartify/strestservice/business/entity/Category_.class
+com/smartify/strestservice/rest/ViewUserLocationsFacadeREST.class
 com/smartify/strestservice/business/entity/ItemSize_.class
+com/smartify/strestservice/rest/UserTrackingFacadeREST.class
 com/smartify/strestservice/rest/BranchFacadeREST.class
 com/smartify/strestservice/business/entity/LandmarkUser_.class
 com/smartify/strestservice/rest/AreaFacadeREST.class
@@ -53,6 +56,7 @@ com/smartify/strestservice/business/entity/OffreRequirement.class
 com/smartify/strestservice/rest/UserFacadeREST.class
 com/smartify/strestservice/rest/CategoryFacadeREST.class
 com/smartify/strestservice/business/entity/ViewUserLocations.class
+com/smartify/strestservice/model/UserTrackingModel.class
 com/smartify/strestservice/rest/WidthUnitFacadeREST.class
 com/smartify/strestservice/rest/OffreFacadeREST.class
 com/smartify/strestservice/rest/TransactionDetailsFacadeREST.class
@@ -71,6 +75,7 @@ com/smartify/strestservice/rest/OffreRequirementFacadeREST.class
 com/smartify/strestservice/rest/UserLocationCustomFacadeREST.class
 com/smartify/strestservice/business/entity/Unit_.class
 com/smartify/strestservice/business/entity/TransactionDetails.class
+com/smartify/strestservice/enumeration/UserType.class
 com/smartify/strestservice/business/entity/LengthUnit_.class
 com/smartify/strestservice/business/entity/Category.class
 com/smartify/strestservice/rest/AbstractFacade.class
@@ -89,3 +94,4 @@ com/smartify/strestservice/rest/AccountFacadeREST.class
 com/smartify/strestservice/rest/UnitFacadeREST.class
 com/smartify/strestservice/business/entity/ViewUserLocations_.class
 com/smartify/strestservice/business/entity/ViewUserTracking_.class
+com/smartify/strestservice/model/UserlocationModel.class

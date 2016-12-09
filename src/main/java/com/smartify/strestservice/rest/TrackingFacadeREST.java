@@ -81,9 +81,6 @@ public class TrackingFacadeREST extends AbstractFacade<Tracking> {
         return String.valueOf(super.count());
     }
 
-    @Override
-    protected EntityManager getEntityManager() {
-        return em;
-    }
+   
     
 }

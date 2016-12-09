@@ -6,6 +6,8 @@
 package com.smartify.strestservice.rest;
 
 import com.smartify.strestservice.business.entity.Landmark;
+import com.smartify.strestservice.business.entity.ViewUserLocations;
+import com.smartify.strestservice.model.UserlocationModel;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -80,9 +82,12 @@ public class LandmarkFacadeREST extends AbstractFacade<Landmark> {
         return String.valueOf(super.count());
     }
 
-    @Override
-    protected EntityManager getEntityManager() {
-        return em;
+   //Get Clients with their (address)
+     @GET
+    @Path("/getLandmarks/from={from}/to={to}")
+    @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
+    public List<Landmark> getLandmarks(@PathParam("from") Integer from, @PathParam("to") Integer to) {
+        return  new UserlocationModel().getLandmarks(new int[]{from, to});
     }
     
 }

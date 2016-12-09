@@ -6,10 +6,8 @@
 package com.smartify.strestservice.business.entity;
 
 import java.io.Serializable;
-import java.util.Collection;
 import java.util.Date;
 import javax.persistence.Basic;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -19,15 +17,12 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -73,21 +68,9 @@ public class User implements Serializable {
     @Size(max = 45)
     @Column(name = "track_color")
     private String trackColor;
-    @OneToMany(mappedBy = "userId")
-    private Collection<Landmark> landmarkCollection;
-    @OneToOne(cascade = CascadeType.ALL, mappedBy = "createdBy")
-    private Item item;
-    @OneToOne(cascade = CascadeType.ALL, mappedBy = "deletedBy")
-    private Item item1;
-    @OneToOne(cascade = CascadeType.ALL, mappedBy = "updatedBy")
-    private Item item2;
     @JoinColumn(name = "user_type_id", referencedColumnName = "iduser_type")
     @ManyToOne
     private UserType userTypeId;
-    @OneToOne(cascade = CascadeType.ALL, mappedBy = "createdBy")
-    private Transaction transaction;
-    @OneToOne(cascade = CascadeType.ALL, mappedBy = "updatedBy")
-    private Transaction transaction1;
 
     public User() {
     }
@@ -157,61 +140,12 @@ public class User implements Serializable {
         this.trackColor = trackColor;
     }
 
-    @XmlTransient
-    public Collection<Landmark> getLandmarkCollection() {
-        return landmarkCollection;
-    }
-
-    public void setLandmarkCollection(Collection<Landmark> landmarkCollection) {
-        this.landmarkCollection = landmarkCollection;
-    }
-
-    public Item getItem() {
-        return item;
-    }
-
-    public void setItem(Item item) {
-        this.item = item;
-    }
-
-    public Item getItem1() {
-        return item1;
-    }
-
-    public void setItem1(Item item1) {
-        this.item1 = item1;
-    }
-
-    public Item getItem2() {
-        return item2;
-    }
-
-    public void setItem2(Item item2) {
-        this.item2 = item2;
-    }
-
     public UserType getUserTypeId() {
         return userTypeId;
     }
 
     public void setUserTypeId(UserType userTypeId) {
         this.userTypeId = userTypeId;
-    }
-
-    public Transaction getTransaction() {
-        return transaction;
-    }
-
-    public void setTransaction(Transaction transaction) {
-        this.transaction = transaction;
-    }
-
-    public Transaction getTransaction1() {
-        return transaction1;
-    }
-
-    public void setTransaction1(Transaction transaction1) {
-        this.transaction1 = transaction1;
     }
 
     @Override

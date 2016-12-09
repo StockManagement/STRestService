@@ -32,9 +32,9 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Tracking.findAll", query = "SELECT t FROM Tracking t"),
     @NamedQuery(name = "Tracking.findByIdtracking", query = "SELECT t FROM Tracking t WHERE t.idtracking = :idtracking"),
     @NamedQuery(name = "Tracking.findByLatitude", query = "SELECT t FROM Tracking t WHERE t.latitude = :latitude"),
-    @NamedQuery(name = "Tracking.findByLogitude", query = "SELECT t FROM Tracking t WHERE t.logitude = :logitude"),
+    @NamedQuery(name = "Tracking.findByLongitude", query = "SELECT t FROM Tracking t WHERE t.longitude = :longitude"),
     @NamedQuery(name = "Tracking.findByAccuracy", query = "SELECT t FROM Tracking t WHERE t.accuracy = :accuracy"),
-    @NamedQuery(name = "Tracking.findByLocationProvicer", query = "SELECT t FROM Tracking t WHERE t.locationProvicer = :locationProvicer"),
+    @NamedQuery(name = "Tracking.findByLocationProvider", query = "SELECT t FROM Tracking t WHERE t.locationProvider = :locationProvider"),
     @NamedQuery(name = "Tracking.findByProvider", query = "SELECT t FROM Tracking t WHERE t.provider = :provider"),
     @NamedQuery(name = "Tracking.findByDateTime", query = "SELECT t FROM Tracking t WHERE t.dateTime = :dateTime"),
     @NamedQuery(name = "Tracking.findBySpeed", query = "SELECT t FROM Tracking t WHERE t.speed = :speed"),
@@ -51,16 +51,16 @@ public class Tracking implements Serializable {
     // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
     @Column(name = "latitude")
     private Double latitude;
-    @Column(name = "logitude")
-    private Double logitude;
+    @Column(name = "longitude")
+    private Double longitude;
     @Column(name = "accuracy")
     private Double accuracy;
-    @Column(name = "locationProvicer")
-    private Integer locationProvicer;
+    @Column(name = "locationProvider")
+    private Integer locationProvider;
     @Size(max = 255)
     @Column(name = "provider")
     private String provider;
-    @Column(name = "date_time")
+    @Column(name = "dateTime")
     @Temporal(TemporalType.TIMESTAMP)
     private Date dateTime;
     @Column(name = "speed")
@@ -94,12 +94,12 @@ public class Tracking implements Serializable {
         this.latitude = latitude;
     }
 
-    public Double getLogitude() {
-        return logitude;
+    public Double getLongitude() {
+        return longitude;
     }
 
-    public void setLogitude(Double logitude) {
-        this.logitude = logitude;
+    public void setLongitude(Double longitude) {
+        this.longitude = longitude;
     }
 
     public Double getAccuracy() {
@@ -110,12 +110,12 @@ public class Tracking implements Serializable {
         this.accuracy = accuracy;
     }
 
-    public Integer getLocationProvicer() {
-        return locationProvicer;
+    public Integer getLocationProvider() {
+        return locationProvider;
     }
 
-    public void setLocationProvicer(Integer locationProvicer) {
-        this.locationProvicer = locationProvicer;
+    public void setLocationProvider(Integer locationProvider) {
+        this.locationProvider = locationProvider;
     }
 
     public String getProvider() {
